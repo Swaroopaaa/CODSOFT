@@ -5,10 +5,8 @@ from sklearn.metrics import classification_report, accuracy_score
 import joblib
 
 
-train_df = pd.read_csv('archive (1)/fraudTrain.csv')
-test_df = pd.read_csv('archive (1)/fraudTest.csv')
-
-
+train_df = pd.read_csv('fraudTrain.csv')
+test_df = pd.read_csv('fraudTest.csv')
 
 
 train_df = train_df.select_dtypes(include=['number'])
@@ -31,7 +29,7 @@ model.fit(X_train_scaled, y_train)
 
 
 y_pred = model.predict(X_test_scaled)
-print("\n Classification Report:\n", classification_report(y_test, y_pred))
+print("\nClassification Report:\n", classification_report(y_test, y_pred))
 print(" Accuracy:", accuracy_score(y_test, y_pred))
 
 
@@ -61,5 +59,6 @@ for col in columns:
         except ValueError:
             print("⚠ Please enter a valid number.")
 
+
 result = predict_transaction(user_input)
-print("\n This transaction is predicted to be:", result) 
+print("\n This transaction is predicted to be:", result)
